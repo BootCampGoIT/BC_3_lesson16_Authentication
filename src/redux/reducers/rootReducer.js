@@ -13,7 +13,7 @@ import storage from "redux-persist/lib/storage";
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["email", "idToken", "refreshToken", "isAuth"],
+  whitelist: ["email", "idToken", "refreshToken", "isAuth", "localId"],
   // blacklist: ["isLoading", "error"],
 };
 

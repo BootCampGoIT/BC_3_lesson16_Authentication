@@ -28,7 +28,7 @@ const editStudentOperation = (newStudent) => async (dispatch, getState) => {
   dispatch(setLoading());
   try {
     await axios.put(
-      `${process.env.REACT_APP_BASE_URL}/students/${newStudent.id}.json?auth=${idToken}`,
+      `${process.env.REACT_APP_BASE_URL}/students/${newStudent.id}.json`,
       newStudent
     );
     dispatch(editStudent(newStudent));
@@ -44,7 +44,7 @@ const getStudentsOperation = () => async (dispatch, getState) => {
   dispatch(setLoading());
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/students.json?auth=${idToken}`
+      `${process.env.REACT_APP_BASE_URL}/students.json`
     );
     const students = Object.keys(response.data).map((key) => ({
       ...response.data[key],

@@ -43,4 +43,10 @@ export const mainRoutes = [
     exact: false,
     component: lazy(() => import("../components/auth/AuthForm")),
   },
+  {
+    path: "/test",
+    name: "Test",
+    exact: false,
+    component: lazy(() => import("../pages/Test")),
+  },
 ];

@@ -8,12 +8,12 @@ import {
 } from "../actions/tutorsActions";
 
 const addNewTutorOperation = (tutor) => async (dispatch, getState) => {
-  const idToken = getState().auth.idToken;
-  // axios.defaults.headers.common["Authorization"] = getState().auth.idToken;
+  // const idToken = getState().auth.idToken;
+  axios.defaults.headers.common["Authorization"] = getState().auth.idToken;
   dispatch(setLoading());
   try {
     const response = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}/tutors.json?auth=${idToken}`,
+      `${process.env.REACT_APP_BASE_URL}/tutors.json`,
       // `${process.env.REACT_APP_BASE_URL}/tutors.json`,
       tutor
     );
@@ -26,12 +26,12 @@ const addNewTutorOperation = (tutor) => async (dispatch, getState) => {
 };
 
 const getTutorsOperation = () => async (dispatch, getState) => {
-  const idToken = getState().auth.idToken;
-  // axios.defaults.headers.common["Authorization"] = getState().auth.idToken;
+  // const idToken = getState().auth.idToken;
+  axios.defaults.headers.common["Authorization"] = getState().auth.idToken;
   dispatch(setLoading());
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/tutors.json?auth=${idToken}`
+      `${process.env.REACT_APP_BASE_URL}/tutors.json`
     );
     const tutors = Object.keys(response.data).map((key) => ({
       ...response.data[key],

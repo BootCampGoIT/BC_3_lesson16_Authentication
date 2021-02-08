@@ -12,6 +12,7 @@ const initialState = {
   refreshToken: "",
   isAuth: false,
   isLoading: false,
+  localId: "",
   error: "",
 };
 
@@ -24,6 +25,7 @@ const authReducer = (state = { ...initialState }, { type, payload }) => {
         idToken: payload.idToken,
         refreshToken: payload.refreshToken,
         isAuth: true,
+        localId: payload.localId,
       };
     case SIGNIN:
       return {
@@ -32,6 +34,7 @@ const authReducer = (state = { ...initialState }, { type, payload }) => {
         idToken: payload.idToken,
         refreshToken: payload.refreshToken,
         isAuth: true,
+        localId: payload.localId,
       };
     case SIGNOUT:
       return { ...initialState };
